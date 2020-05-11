@@ -18,7 +18,6 @@ const App = () => {
         >
           {navigator}
         </PaperProvider>
-        {/* {navigator} */}
       </NavigationContainer>
     </>
   );

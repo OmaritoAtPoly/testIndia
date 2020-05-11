@@ -24,15 +24,14 @@ const useFetch = (articleId: string) => {
 
     useEffect(() => {
         getArticle()
-    }, [articleId])
+    }, [])
 
     return { data, loading }
 }
 
 
 export const Article = ({ navigation, route }: any) => {
-    const [articleId, setArticle] = useState(articles[6])
+    const [articleId, setArticle] = useState(articles[0])
     const { data, loading } = useFetch(articleId)
-    console.log(data)
     return loading ? <Text>Loading...</Text> : <ArticleSwitcher article={data} />
 }
