@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { LodgingForm } from '../../component/lodging'
 
 const initialValues = {
     email: '',
@@ -12,11 +12,5 @@ export const Login = () => {
         console.log(values)
     }
 
-    return (
-        <View>
-            <Text>
-                Login...
-            </Text>
-        </View>
-    )
+    return (<LodgingForm initialValues={initialValues} onLogin={onLogin} />)
 }
