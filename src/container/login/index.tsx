@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginForm } from '../../component/lodging'
+import { LoginForm } from '../../component/login'
 import axios from 'axios'
 
 const initialValues = {
