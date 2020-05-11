@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Login } from './login'
 
 export const Main = () => {
-    return <Text>Main Main</Text>
+    return <Login />
 }
