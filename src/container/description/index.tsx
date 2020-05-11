@@ -28,6 +28,7 @@ const useFetch = (descriptionUrl: string) => {
 
 export const Description = ({ descriptionUrl }: Props) => {
     const { data, loading } = useFetch(descriptionUrl)
-    console.log(data)
+    // console.log('loading description')
+    // console.log(data)
     return <Text>Description</Text>
 }

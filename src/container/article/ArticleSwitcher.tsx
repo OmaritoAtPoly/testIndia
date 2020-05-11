@@ -2,16 +2,16 @@ import React from 'react'
 import { ArticleViewWithImage } from '../../component/article/ArticleViewWithImage'
 import { ArticleViewWithNoImage } from './ArticleViewWithNoImage '
 import { Text } from 'react-native'
+import { ArticleView } from '../../component/article'
 
 interface Props {
     article: any
 }
 
 export const ArticleSwitcher = ({ article }: Props) => {
-    const articleDetail = article.PostDetail
-    console.log('Detailss')
-    console.log(articleDetail.descriptionURL)
-    return <Text>Article View</Text>
+    const { title, descriptionURL } = article.PostDetail
+    return <ArticleView title={title} descUrl={descriptionURL} />
+    // return <Text>Article View</Text>
     // return componentToRender(articleDetail)
 }
 
