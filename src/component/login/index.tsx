@@ -1,6 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik';
-import { View, Button, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
+import { Button } from 'react-native-paper'
 
 interface Props {
     initialValues: any
@@ -28,7 +29,9 @@ export const LoginForm = ({ initialValues, onLogin }: Props) => {
                         secureTextEntry={true}
                         value={values.pass}
                     />
-                    <Button onPress={handleSubmit} title="Submit" />
+                    <Button onPress={handleSubmit} mode="contained" >
+                        Submit
+                    </Button>
                 </View>
             )}
         </Formik>
