@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Text } from 'react-native'
 import { fetchArticle } from '../../dataaccess/article'
+import { ArticleViewWithNoImage } from './ArticleViewWithNoImage'
 
 const articles =
     [
@@ -17,7 +18,7 @@ export const Article = ({ navigation, route }: any) => {
 
     const isValidArticle = (article: any) => {
         if (article) {
-            console.log(article)
+            // console.log(article)
             setArticle(article)
         }
     }
@@ -31,5 +32,9 @@ export const Article = ({ navigation, route }: any) => {
         getArticle()
     }, [articleId])
 
-    return <Text>Article</Text>
+
+    return <>
+        <Text>Article</Text>
+        <ArticleViewWithNoImage article={article} navigation={navigation} />
+    </>
 }
