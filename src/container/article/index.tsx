@@ -1,7 +1,6 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Text } from 'react-native'
-import { fetchArticleUrl } from '..'
+import { fetchArticle } from '../../dataaccess/article'
 
 const articles =
     [
@@ -12,18 +11,25 @@ const articles =
     ]
 
 export const Article = ({ navigation, route }: any) => {
-    const userId = route.params.userId
-    const [article, setArticle] = useState(articles[0])
+    const defaultArticle: any = {}
+    const [article, setArticle] = useState(defaultArticle)
+    const [articleId, setArticleId] = useState(articles[5])
 
-    const fetchArticle = async () => {
-        const detailArticleDir = `${fetchArticleUrl}${article}`
-        console.log(detailArticleDir)
-        await axios.get(detailArticleDir).then(res => { console.log(res.data) })
+    const isValidArticle = (article: any) => {
+        if (article) {
+            console.log(article)
+            setArticle(article)
+        }
+    }
+
+    const getArticle = async () => {
+        const article = await fetchArticle(articleId)
+        isValidArticle(article)
     }
 
     useEffect(() => {
-        fetchArticle()
-    }, [article])
+        getArticle()
+    }, [articleId])
 
     return <Text>Article</Text>
 }
