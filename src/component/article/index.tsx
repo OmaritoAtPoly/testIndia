@@ -5,15 +5,15 @@ import { Title } from 'react-native-paper'
 
 interface Props {
     title: string;
-    descUrl: string;
+    desc: string;
 }
 
-export const ArticleView = ({ title, descUrl }: Props) => {
+export const ArticleView = ({ title, desc }: Props) => {
 
     return (
         <View>
             <Title>{title}</Title>
-            <Description descriptionUrl={descUrl} />
+            <Description description={desc} />
         </View>
     )
 }

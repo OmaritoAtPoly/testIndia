@@ -8,11 +8,11 @@ interface Props {
     article: any
 }
 
+const lorem = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt ab tenetur, eveniet tempora nostrum architecto nihil quibusdam soluta, eaque quia aliquam consequuntur. Recusandae doloribus beatae fugiat odit perferendis enim reiciendis.'
+
 export const ArticleSwitcher = ({ article }: Props) => {
-    const { title, descriptionURL } = article.PostDetail
-    return <ArticleView title={title} descUrl={descriptionURL} />
-    // return <Text>Article View</Text>
-    // return componentToRender(articleDetail)
+    const { title } = article.PostDetail
+    return <ArticleView title={title} desc={lorem} />
 }
 
 const componentToRender = (articleDetail: any) => {

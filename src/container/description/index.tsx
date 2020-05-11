@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 import { fetchDescription } from '../../dataaccess/article'
 
 interface Props {
-    descriptionUrl: string
+    description: string
 }
 
 const queryDescription = async (descriptionUrl: string) => {
@@ -26,9 +26,7 @@ const useFetch = (descriptionUrl: string) => {
     return { data, loading }
 }
 
-export const Description = ({ descriptionUrl }: Props) => {
-    const { data, loading } = useFetch(descriptionUrl)
-    // console.log('loading description')
-    // console.log(data)
-    return <Text>Description</Text>
+export const Description = ({ description }: Props) => {
+    // const { data, loading } = useFetch(descriptionUrl)
+    return <Text>{description}</Text>
 }
