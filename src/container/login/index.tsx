@@ -1,5 +1,5 @@
 import React from 'react'
-import { LodgingForm } from '../../component/lodging'
+import { LoginForm } from '../../component/lodging'
 
 const initialValues = {
     email: '',
@@ -12,5 +12,5 @@ export const Login = () => {
         console.log(values)
     }
 
-    return (<LodgingForm initialValues={initialValues} onLogin={onLogin} />)
+    return (<LoginForm initialValues={initialValues} onLogin={onLogin} />)
 }
