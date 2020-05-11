@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { ArticleViewWithImage } from '../../component/article/ArticleViewWithImage'
+import { ArticleViewWithNoImage } from './ArticleViewWithNoImage '
 
 interface Props {
     article: any
@@ -21,7 +21,15 @@ const componentToRender = (articleDetail: any) => {
             />
         )
     } else {
-        return <Text>Aqui va el Component del Tigre</Text>
+        return <ArticleViewWithNoImage 
+        title={articleDetail.title} 
+        description={articleDetail.description[0].data}
+        article_id={articleDetail.article_id}
+        tags={articleDetail.tags}
+        created_at={articleDetail.created_at}
+        total_upvote = {articleDetail.total_upvote}
+        comment_count={articleDetail.comment_count}
+        />
     }
 
 }
