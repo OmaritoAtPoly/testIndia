@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Text } from 'react-native'
 import { fetchArticle } from '../../dataaccess/article'
 import { ArticleSwitcher } from './ArticleSwitcher'
+import { Loading } from '../../component/loading/Loading'
 
 const articles = ['5ea9938307d49135ba47bbc7', '5ea993634c87c3359a63c9ec', '5ea9933a66e603359fe0c3ab', '5ea9931f4c87c3359a63c9d1',
     '5ea992f166e603359fe0c382', '5ea9921666e603359fe0c320', '5ea991ba4c87c3359a63c92e']
@@ -34,5 +35,5 @@ export const Article = ({ navigation, route }: any) => {
     const [articleId, setArticle] = useState(articles[6])
     const { data, loading } = useFetch(articleId)
     console.log(data)
-    return loading ? <Text>Loading...</Text> : <ArticleSwitcher article={data} />
+    return loading ? <Loading/> : <ArticleSwitcher article={data} />
 }
