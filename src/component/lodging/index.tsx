@@ -18,11 +18,13 @@ export const LoginForm = ({ initialValues, onLogin }: Props) => {
                     <TextInput
                         onChangeText={handleChange('email')}
                         onBlur={handleBlur('email')}
+                        placeholder={'email'}
                         value={values.email}
                     />
                     <TextInput
                         onChangeText={handleChange('pass')}
                         onBlur={handleBlur('pass')}
+                        placeholder={'password'}
                         secureTextEntry={true}
                         value={values.pass}
                     />
