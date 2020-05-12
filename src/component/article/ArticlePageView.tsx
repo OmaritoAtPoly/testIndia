@@ -6,6 +6,7 @@ import { ArticleImageProfile } from '../../container/article/image'
 import { Description } from '../../container/description'
 import { theme } from '../../theme'
 import { PostedByList } from './posted'
+import { getFakeText } from '../../utils/utils'
 
 interface Props {
     article: any
@@ -14,23 +15,21 @@ interface Props {
 export const ArticlePageView = ({ article }: Props) => {
     const { title, profile_picture, posted_by } = article.PostDetail
     return (
-        <View style={{ width: '100%' }} >
-            <ScrollView style={styles.container} >
-                <ArticleImageProfile imageUrl={profile_picture} />
-                <View style={styles.content} >
-                    <Title>{title}</Title>
-                    <Description description={'Description'} />
-                    <PostedByList postedList={posted_by} />
-                </View>
-            </ScrollView>
-        </View>
-
+        <ScrollView style={styles.container} >
+            <ArticleImageProfile imageUrl={profile_picture} />
+            <View style={styles.content} >
+                <Title>{title}</Title>
+                <Description description={getFakeText()} />
+                <PostedByList postedList={posted_by} />
+            </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: theme.colors.background
+        backgroundColor: theme.colors.background,
+        width: '100%'
     },
     content: {
         height: '100%',
