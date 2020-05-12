@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
+import { CustomAppBar } from '../../basic/CustomAppBar'
 
 const initialValues = {
     email: 'wiz_saurabh@rediffmail.com',
@@ -32,5 +33,10 @@ export const Login = ({ navigation }: Props) => {
         return userId ? goToArticle(userId) : <Text>Login Error</Text>
     }
 
-    return (<LoginForm initialValues={initialValues} onLogin={onLogin} />)
+    return (
+        <View>
+            <CustomAppBar title={'Login'} />
+            <LoginForm initialValues={initialValues} onLogin={onLogin} />
+        </View>
+    )
 }
