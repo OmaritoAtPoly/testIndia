@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
+import { CustomAppBar } from '../../basic/CustomAppBar'
 
 const initialValues = {
     email: 'wiz_saurabh@rediffmail.com',
@@ -11,6 +12,11 @@ interface Props {
     navigation: any
 }
 
+const validateCredentials = (obj: any) => {
+    if (obj.email === initialValues.email && obj.pass === initialValues.pass)
+        return true;
+}
+
 export const Login = ({ navigation }: Props) => {
 
     const goToArticle = (userId: number) => {
@@ -18,7 +24,7 @@ export const Login = ({ navigation }: Props) => {
     }
 
     const onLogin = async (values: any) => {
-        const { email, pass } = values
+        const { email, pass } = values;
         const userId = await login(email, pass)
         loginSucces(userId)
     }
@@ -27,5 +33,10 @@ export const Login = ({ navigation }: Props) => {
         return userId ? goToArticle(userId) : <Text>Login Error</Text>
     }
 
-    return (<LoginForm initialValues={initialValues} onLogin={onLogin} />)
+    return (
+        <View>
+            <CustomAppBar title={'Login'} />
+            <LoginForm initialValues={initialValues} onLogin={onLogin} />
+        </View>
+    )
 }
