@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text } from 'react-native'
+import { Loading } from '../../component/loading/Loading'
 import { fetchArticle } from '../../dataaccess/article'
 import { ArticleSwitcher } from './ArticleSwitcher'
 
@@ -33,5 +33,6 @@ const useFetch = (articleId: string) => {
 export const Article = ({ navigation, route }: any) => {
     const [articleId, setArticle] = useState(articles[3])
     const { data, loading } = useFetch(articleId)
-    return loading ? <Text>Loading...</Text> : <ArticleSwitcher article={data} />
+    // console.log(data)
+    return loading ? <Loading/> : <ArticleSwitcher article={data} />
 }
