@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Alert } from 'react-native'
+import { Text } from 'react-native'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
 
@@ -22,13 +22,10 @@ export const Login = ({ navigation }: Props) => {
         navigation.navigate('article', { userId: userId })
     }
 
-
     const onLogin = async (values: any) => {
         const { email, pass } = values;
-        if (validateCredentials(values)) {
-            const userId = await login(email, pass)
-            loginSucces(userId)
-        } else Alert.alert("You need to set the correct credentials")
+        const userId = await login(email, pass)
+        loginSucces(userId)
     }
 
     const loginSucces = (userId: any) => {
