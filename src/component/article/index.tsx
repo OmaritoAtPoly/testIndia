@@ -1,50 +1,32 @@
 import React from 'react'
+import { CustomAppBar } from '../../basic/CustomAppBar'
 import { View, StyleSheet } from 'react-native'
-import { Description } from '../../container/description'
-import { Title } from 'react-native-paper'
-import { ArticleImageProfile } from '../../container/article/image'
-import { PostedByList } from './posted'
+import Swiper from 'react-native-swiper'
 import { theme } from '../../theme'
-import { ScrollView } from 'react-native-gesture-handler'
 
 interface Props {
-    title: string;
-    desc: string;
-    imgUrl: string;
-    postedList: any[]
+    articles: JSX.Element[]
 }
 
-export const ArticleView = ({ title, desc, imgUrl, postedList }: Props) => {
-
+export const ArticleView = ({ articles }: Props) => {
     return (
-        <ScrollView style={styles.container} >
-            <ArticleImageProfile imageUrl={imgUrl} />
-            <View style={styles.content} >
-                <Title>{title}</Title>
-                <Description description={desc} />
-                <PostedByList postedList={postedList} />
-            </View>
-        </ScrollView>
+        <View style={styles.container} >
+            <CustomAppBar title={'Article'} />
+            <Swiper
+                showsButtons={false}
+                loop={false}
+                dot={<View />}
+                activeDot={<View />}
+            >
+                {articles}
+            </Swiper >
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: theme.colors.background
-    },
-    content: {
+        backgroundColor: theme.colors.background,
         height: '100%',
-        margin: 10,
-        paddingBottom: 150
-    },
-    postedList: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-
-    },
-    postedItem: {
-        marginTop: 5,
-        marginRight: 5
     }
 });
