@@ -18,9 +18,6 @@ interface Props {
 
 export const ArticlePageView = ({ article, userName, profilePicture }: Props) => {
     const { title, profile_picture, posted_by } = article.PostDetail
-    // console.log('Aquiiiiiiiiiiiiiiiiiiiiiiiiii')
-    // console.log(userName)
-    // console.log(profilePicture)
 
     return (
         <ScrollView style={styles.container} >
