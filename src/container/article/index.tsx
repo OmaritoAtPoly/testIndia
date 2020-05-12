@@ -34,6 +34,6 @@ const useFetch = (articleId: string) => {
 export const Article = ({ navigation, route }: any) => {
     const [articleId, setArticle] = useState(articles[6])
     const { data, loading } = useFetch(articleId)
-    console.log(data)
+    // console.log(data)
     return loading ? <Loading/> : <ArticleSwitcher article={data} />
 }

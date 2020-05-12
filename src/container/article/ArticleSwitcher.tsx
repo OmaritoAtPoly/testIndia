@@ -1,6 +1,6 @@
 import React from 'react'
 import { ArticleViewWithImage } from '../../component/article/ArticleViewWithImage'
-import { ArticleViewWithNoImage } from './ArticleViewWithNoImage '
+import { ArticleViewWithNoImage } from '../../component/article/ArticleViewWithNoImage '
 
 interface Props {
     article: any

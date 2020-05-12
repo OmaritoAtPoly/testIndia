@@ -28,7 +28,7 @@ export const Login = ({ navigation }: Props) => {
         if (validateCredentials(values)) {
             const userId = await login(email, pass)
             loginSucces(userId)
-        } else Alert.alert("you have to set the correct credentials")
+        } else Alert.alert("You need to set the correct credentials")
     }
 
     const loginSucces = (userId: any) => {
