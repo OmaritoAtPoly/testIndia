@@ -22,7 +22,9 @@ export const ProfileChip = ({ avatar, text }: Props) => {
 
 const styles = StyleSheet.create({
     container: {
+        width: '60%',
         padding: 5,
+        marginTop: 20,
         backgroundColor: theme.colors.background,
     },
     text: {

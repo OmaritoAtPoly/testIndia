@@ -7,6 +7,8 @@ import { Description } from '../../container/description'
 import { theme } from '../../theme'
 import { PostedByList } from './posted'
 import { getFakeText } from '../../utils/utils'
+import { ProfileChip } from '../../basic/ProfileChip'
+import { UserProfile } from '../../container/user/User'
 
 interface Props {
     article: any
@@ -16,15 +18,16 @@ interface Props {
 
 export const ArticlePageView = ({ article, userName, profilePicture }: Props) => {
     const { title, profile_picture, posted_by } = article.PostDetail
-    console.log('Aquiiiiiiiiiiiiiiiiiiiiiiiiii')
-    console.log(userName)
-    console.log(profilePicture)
+    // console.log('Aquiiiiiiiiiiiiiiiiiiiiiiiiii')
+    // console.log(userName)
+    // console.log(profilePicture)
 
     return (
         <ScrollView style={styles.container} >
             <ArticleImageProfile imageUrl={profile_picture} />
             <View style={styles.content} >
                 <Title>{title}</Title>
+                <UserProfile userName={userName} profilePicture={profilePicture} />
                 <Description description={getFakeText()} />
                 <PostedByList postedList={posted_by} />
             </View>
