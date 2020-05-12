@@ -10,10 +10,16 @@ import { getFakeText } from '../../utils/utils'
 
 interface Props {
     article: any
+    userName: string
+    profilePicture: string
 }
 
-export const ArticlePageView = ({ article }: Props) => {
+export const ArticlePageView = ({ article, userName, profilePicture }: Props) => {
     const { title, profile_picture, posted_by } = article.PostDetail
+    console.log('Aquiiiiiiiiiiiiiiiiiiiiiiiiii')
+    console.log(userName)
+    console.log(profilePicture)
+
     return (
         <ScrollView style={styles.container} >
             <ArticleImageProfile imageUrl={profile_picture} />

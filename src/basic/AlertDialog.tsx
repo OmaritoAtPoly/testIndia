@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import { Portal, Dialog, Paragraph, Button } from 'react-native-paper'
+import { View } from 'react-native'
+import { Button, Dialog, Paragraph, Portal } from 'react-native-paper'
 
 interface Props {
     visible: boolean;
