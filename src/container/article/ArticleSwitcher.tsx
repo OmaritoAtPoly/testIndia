@@ -1,35 +1,24 @@
 import React from 'react'
-import { ArticleViewWithImage } from '../../component/article/ArticleViewWithImage'
-import { ArticleViewWithNoImage } from './ArticleViewWithNoImage '
+import { ArticleView } from '../../component/article'
+import { getFakeText } from '../../utils/utils'
+import { CustomAppBar } from '../../basic/CustomAppBar'
+import { View } from 'react-native'
 
 interface Props {
     article: any
 }
 
 export const ArticleSwitcher = ({ article }: Props) => {
-    const articleDetail = article.PostDetail
-    return componentToRender(articleDetail)
-}
-
-const componentToRender = (articleDetail: any) => {
-    if (articleDetail.profileImage !== undefined) {
-        return (
-            <ArticleViewWithImage
-                title={articleDetail.title}
-                description={articleDetail.description[0].data}
-                profileImage={articleDetail.profileImage}
+    const { title, profile_picture, posted_by } = article.PostDetail
+    return (
+        <View>
+            <CustomAppBar title={'Article'} />
+            <ArticleView
+                title={title}
+                desc={getFakeText()}
+                imgUrl={profile_picture}
+                postedList={posted_by}
             />
-        )
-    } else {
-        return <ArticleViewWithNoImage 
-        title={articleDetail.title} 
-        description={articleDetail.description[0].data}
-        article_id={articleDetail.article_id}
-        tags={articleDetail.tags}
-        created_at={articleDetail.created_at}
-        total_upvote = {articleDetail.total_upvote}
-        comment_count={articleDetail.comment_count}
-        />
-    }
-
+        </View>
+    )
 }
