@@ -1,33 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { Text } from 'react-native'
-import { fetchDescription } from '../../dataaccess/article'
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 interface Props {
-    descriptionUrl: string
+    description: string
 }
 
-const queryDescription = async (descriptionUrl: string) => {
-    return await fetchDescription(descriptionUrl)
+export const Description = ({ description }: Props) => {
+    return (
+        <View style={styles.container} >
+            <Text>{description}</Text>
+        </View>
+    )
 }
 
-const useFetch = (descriptionUrl: string) => {
-    const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(true)
-
-    const fetch = async () => {
-        const data = await queryDescription(descriptionUrl)
-        setData(data)
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 10,
     }
-
-    useEffect(() => {
-        fetch().then(() => setLoading(false))
-    }, [])
-
-    return { data, loading }
-}
-
-export const Description = ({ descriptionUrl }: Props) => {
-    const { data, loading } = useFetch(descriptionUrl)
-    console.log(data)
-    return <Text>Description</Text>
-}
+});

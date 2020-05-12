@@ -1,7 +1,8 @@
-import React from 'react'
 import { Formik } from 'formik';
-import { View, TextInput } from 'react-native';
-import { Button } from 'react-native-paper'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, TextInput } from 'react-native-paper';
+import { theme } from '../../theme';
 
 interface Props {
     initialValues: any
@@ -14,22 +15,26 @@ export const LoginForm = ({ initialValues, onLogin }: Props) => {
             initialValues={initialValues}
             onSubmit={values => onLogin(values)}
         >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
-                <View>
+            {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
+                <View style={styles.container}>
                     <TextInput
+                        style={styles.verticalMargin}
+                        mode='outlined'
+                        label="Email"
                         onChangeText={handleChange('email')}
                         onBlur={handleBlur('email')}
-                        placeholder={'email'}
                         value={values.email}
                     />
                     <TextInput
+                        style={styles.verticalMargin}
                         onChangeText={handleChange('pass')}
+                        mode='outlined'
+                        label="Password"
                         onBlur={handleBlur('pass')}
-                        placeholder={'password'}
                         secureTextEntry={true}
                         value={values.pass}
                     />
-                    <Button onPress={handleSubmit} mode="contained" >
+                    <Button style={styles.verticalMargin} onPress={handleSubmit} mode="contained" >
                         Submit
                     </Button>
                 </View>
@@ -37,3 +42,16 @@ export const LoginForm = ({ initialValues, onLogin }: Props) => {
         </Formik>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        height: '100%',
+        paddingTop: '20%',
+        paddingHorizontal: 20,
+        backgroundColor: theme.colors.background
+    },
+    verticalMargin: {
+        marginVertical: 10
+    }
+})
