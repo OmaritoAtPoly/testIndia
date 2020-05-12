@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
 import { CustomAppBar } from '../../basic/CustomAppBar'
+import { AlertDialog } from '../../basic/AlertDialog'
 
 const initialValues = {
     email: 'wiz_saurabh@rediffmail.com',
@@ -18,6 +19,7 @@ const validateCredentials = (obj: any) => {
 }
 
 export const Login = ({ navigation }: Props) => {
+    const [show, setShow] = useState(true)
 
     const goToArticle = (userId: number) => {
         navigation.navigate('article', { userId: userId })
@@ -29,14 +31,19 @@ export const Login = ({ navigation }: Props) => {
         loginSucces(userId)
     }
 
+    const onDismiss = () => {
+        setShow(false)
+    }
+
     const loginSucces = (userId: any) => {
-        return userId ? goToArticle(userId) : <Text>Login Error</Text>
+        return userId ? goToArticle(userId) : setShow(true)
     }
 
     return (
         <View>
-            <CustomAppBar title={'Login'} />
-            <LoginForm initialValues={initialValues} onLogin={onLogin} />
+            {/* <CustomAppBar title={'Login'} />
+            <LoginForm initialValues={initialValues} onLogin={onLogin} /> */}
+            <AlertDialog visible={show} onDismiss={onDismiss} />
         </View>
     )
 }
