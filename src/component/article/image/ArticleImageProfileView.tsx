@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, Image } from 'react-native'
-import { Card } from 'react-native-paper'
+import { Image, View } from 'react-native'
 
 interface Props {
     imageUrl: string
