@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     content: {
         height: '100%',
         margin: 10,
+        paddingBottom: 150
     },
     postedList: {
         display: 'flex',
