@@ -5,6 +5,7 @@ import { Title } from 'react-native-paper'
 import { ArticleImageProfile } from '../../container/article/image'
 import { PostedByList } from './posted'
 import { theme } from '../../theme'
+import { ScrollView } from 'react-native-gesture-handler'
 
 interface Props {
     title: string;
@@ -16,14 +17,14 @@ interface Props {
 export const ArticleView = ({ title, desc, imgUrl, postedList }: Props) => {
 
     return (
-        <View style={styles.container} >
+        <ScrollView style={styles.container} >
             <ArticleImageProfile imageUrl={imgUrl} />
             <View style={styles.content} >
                 <Title>{title}</Title>
                 <Description description={desc} />
                 <PostedByList postedList={postedList} />
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
     content: {
         height: '100%',
         margin: 10,
+        paddingBottom: 150
     },
     postedList: {
         display: 'flex',

@@ -1,6 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
-import { Card } from 'react-native-paper'
+import { Image, View } from 'react-native'
 
 interface Props {
     imageUrl: string
@@ -9,7 +8,9 @@ interface Props {
 export const ArticleImagePorfileView = ({ imageUrl }: Props) => {
     return (
         <View>
-            <Card.Cover source={{ uri: imageUrl }} />
+            <Image source={{ uri: imageUrl }}
+                style={{ height: 300 }}
+            />
         </View>
     )
 }

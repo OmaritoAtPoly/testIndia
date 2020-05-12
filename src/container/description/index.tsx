@@ -1,33 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-import { fetchDescription } from '../../dataaccess/article'
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 interface Props {
     description: string
 }
 
-// const queryDescription = async (descriptionUrl: string) => {
-//     return await fetchDescription(descriptionUrl)
-// }
-
-// const useFetch = (descriptionUrl: string) => {
-//     const [data, setData] = useState(null)
-//     const [loading, setLoading] = useState(true)
-
-//     const fetch = async () => {
-//         const data = await queryDescription(descriptionUrl)
-//         setData(data)
-//     }
-
-//     useEffect(() => {
-//         fetch().then(() => setLoading(false))
-//     }, [])
-
-//     return { data, loading }
-// }
-
 export const Description = ({ description }: Props) => {
-    // const { data, loading } = useFetch(descriptionUrl)
     return (
         <View style={styles.container} >
             <Text>{description}</Text>
@@ -37,6 +15,6 @@ export const Description = ({ description }: Props) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 10
+        marginTop: 10,
     }
 });
