@@ -1,0 +1,4 @@
+export const getFakeText = () => {
+    return `
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt ab tenetur, eveniet tempora nostrum architecto nihil quibusdam soluta, eaque quia aliquam consequuntur. Recusandae doloribus beatae fugiat odit perferendis enim reiciendis. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+}

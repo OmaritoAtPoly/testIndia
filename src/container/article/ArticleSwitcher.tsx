@@ -3,16 +3,15 @@ import { ArticleViewWithImage } from '../../component/article/ArticleViewWithIma
 import { ArticleViewWithNoImage } from './ArticleViewWithNoImage '
 import { Text } from 'react-native'
 import { ArticleView } from '../../component/article'
+import { getFakeText } from '../../utils/utils'
 
 interface Props {
     article: any
 }
 
-const lorem = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt ab tenetur, eveniet tempora nostrum architecto nihil quibusdam soluta, eaque quia aliquam consequuntur. Recusandae doloribus beatae fugiat odit perferendis enim reiciendis. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-
 export const ArticleSwitcher = ({ article }: Props) => {
-    const { title, profile_picture, posted_by } = article.PostDetail
-    return <ArticleView title={title} desc={lorem} imgUrl={profile_picture} postedList={posted_by} />
+    const { title, profile_image, posted_by } = article.PostDetail
+    return <ArticleView title={title} desc={getFakeText()} imgUrl={profile_image} postedList={posted_by} />
 }
 
 const componentToRender = (articleDetail: any) => {
