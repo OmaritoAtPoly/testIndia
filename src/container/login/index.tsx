@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import { AlertDialog } from '../../basic/AlertDialog'
+import { CustomAppBar } from '../../basic/CustomAppBar'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
-import { CustomAppBar } from '../../basic/CustomAppBar'
-import { AlertDialog } from '../../basic/AlertDialog'
-import { ProfileChip } from '../../basic/ProfileChip'
-import { Avatar } from 'react-native-paper'
 
 const initialValues = {
     email: 'wiz_saurabh@rediffmail.com',
@@ -42,7 +40,6 @@ export const Login = ({ navigation }: Props) => {
     }
 
     const loginSucces = (userData: any) => {
-        console.log(userData)
         return userData ? goToArticle(userData.id, userData.first_name, userData.profile_picture) : setShow(true)
     }
 
