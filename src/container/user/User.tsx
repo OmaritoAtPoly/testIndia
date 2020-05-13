@@ -1,6 +1,7 @@
 import React from 'react'
 import { Avatar } from 'react-native-paper'
 import { ProfileChip } from '../../basic/ProfileChip'
+import { StyleSheet, View } from 'react-native'
 
 interface Props {
     userName: string
@@ -11,7 +12,23 @@ export const UserProfile = ({ userName, profilePicture }: Props) => {
     return (
         <ProfileChip
             text={userName}
-            avatar={<Avatar.Image size={28} source={{ uri: profilePicture }} />}
+            avatar={
+                <View style={styles.avatar} >
+                    <Avatar.Image size={28} source={{ uri: profilePicture }} />
+                </View>
+            }
         />
     )
 }
+
+const styles = StyleSheet.create({
+    avatar: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 50,
+        width: 40,
+        height: 40,
+        borderWidth: 2,
+        padding: 5
+    }
+});
