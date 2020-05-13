@@ -1,7 +1,7 @@
 import React from 'react'
 import { Login } from './login'
 import { View } from 'react-native'
-import { LikeComponentView } from '../basic/LikeView'
+import { LikeComponentView } from '../basic/like/LikeView'
 import { Like } from '../basic/like/Like'
 
 export const domainName = 'https://www.atg.party/'

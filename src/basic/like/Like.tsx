@@ -1,5 +1,5 @@
 import React from 'react'
-import { LikeComponentView } from '../LikeView'
+import { LikeComponentView } from './LikeView'
 
 interface Props {
     like: number;
