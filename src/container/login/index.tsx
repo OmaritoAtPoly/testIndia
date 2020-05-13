@@ -34,17 +34,15 @@ export const Login = ({ navigation }: Props) => {
     const onLogin = async (values: any) => {
         const { email, pass } = values;
         const userData = await login(email, pass)
-        console.log('Aqui')
-        console.log(userData)
-        loginSucces(userData.id, userData.first_name, userData.profile_picture)
+        loginSucces(userData)
     }
 
     const onDismiss = () => {
         setShow(false)
     }
 
-    const loginSucces = (userId: any, userName: string, profilePicture: string) => {
-        return userId ? goToArticle(userId, userName, profilePicture) : setShow(true)
+    const loginSucces = (userData: any) => {
+        return userData ? goToArticle(userData.userId, userData.userName, userData.profilePicture) : setShow(true)
     }
 
     return (
