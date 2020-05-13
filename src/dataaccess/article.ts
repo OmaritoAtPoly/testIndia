@@ -7,6 +7,5 @@ export const fetchArticle = async (articleId: string) => {
 }
 
 export const fetchDescription = async (descriptionUrl: string) => {
-    const data = await axios.get('https://www.atg.party/view-article/32225/wv/description').then(res => res.data).catch(err => console.log(err))
-    return data;
+    return await axios.get(descriptionUrl).then(res => res.data).catch(err => console.log(err))
 }
