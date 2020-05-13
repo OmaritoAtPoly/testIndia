@@ -1,20 +1,22 @@
 import React from 'react'
-import { StyleSheet, View, } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import { Subheading, Title, Text, Drawer } from 'react-native-paper'
+import { Subheading, Title } from 'react-native-paper'
 import { ArticleImageProfile } from '../../container/article/image'
 import { Description } from '../../container/description'
+import { UserProfile } from '../../container/user/User'
 import { theme } from '../../theme'
-import { getFakeText } from '../../utils/utils'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
 
 interface Props {
     article: any
+    userName: string
+    profilePicture: string
 }
 
 
-export const ArticlePageView = ({ article }: Props) => {
+export const ArticlePageView = ({ article, userName, profilePicture }: Props) => {
     const { title, profile_picture, posted_by, first_name, last_name, description, tagline } = article.PostDetail
 
     return (
@@ -22,7 +24,8 @@ export const ArticlePageView = ({ article }: Props) => {
             <ArticleImageProfile imageUrl={profile_picture} />
             <View style={styles.content} >
                 <Title style={{ fontSize: 25 }}>{title}</Title>
-                <View>
+                <View style={styles.user_avatar}>
+                    <UserProfile userName={userName} profilePicture={profilePicture} />
                     <Subheading style={{ marginLeft: 25 }}>Articule</Subheading>
                 </View>
                 <Description description={description} />
@@ -53,16 +56,11 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginRight: 5
     },
-    // name_last: {
-    //     display: 'flex',
-    //     flexDirection: 'row',
-    //     color: 'red',
-        // fontWeight: '900',
-        // fontSize: 111,
-        // marginTop: 20,
-        // marginLeft: 20,
-        // alignItems: 'center'
-    // },
+    user_avatar: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
 });
 
 

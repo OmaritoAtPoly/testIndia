@@ -5,6 +5,8 @@ import { ArticlePageView } from '../../component/article/ArticlePageView'
 
 interface Props {
     articleId: string
+    userName: string
+    profilePicture: string
 }
 
 const useFetch = (articleId: string) => {
@@ -29,10 +31,7 @@ const useFetch = (articleId: string) => {
     return { data, loading }
 }
 
-export const ArticlePage = ({ articleId }: Props) => {
-
+export const ArticlePage = ({ articleId, userName, profilePicture }: Props) => {
     const { data, loading } = useFetch(articleId)
-
-
-    return loading ? <Loading /> : <ArticlePageView article={data} />
+    return loading ? <Loading /> : <ArticlePageView article={data} profilePicture={profilePicture} userName={userName} />
 }
