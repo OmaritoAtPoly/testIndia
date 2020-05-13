@@ -3,6 +3,14 @@ import { ArticleView } from '../../component/article'
 import { articlesIds } from '../../utils/utils'
 import { ArticlePage } from './ArticlePage'
 
+const onLike = (likeCount: number) => {
+    console.log('OnLike')
+}
+
+const onDisslike = (disslikeCount: number) => {
+    console.log('On dislike')
+}
+
 
 const getArticlesToRender = (userName: string, profilePicture: string) => {
     return articlesIds.map((article) => {
@@ -11,17 +19,14 @@ const getArticlesToRender = (userName: string, profilePicture: string) => {
             articleId={article.articleId}
             userName={userName}
             profilePicture={profilePicture}
+            onDislike={onDisslike}
+            onLike={onLike}
         />
     })
 }
 
-// "profilePicture": "https://s3.ap-south-1.amazonaws.com/atg-test-s3/assets/Frontend/user/profile_pics/83/thumb/1523276847.png",
-// "userId": 83,
-// "userName": "Saurabh"
-
 export const Article = ({ route }: any) => {
     const { profilePicture, userName } = route.params
-    console.log(route.params)
     const defaultArticles: JSX.Element[] = []
     const [articles, setArticles] = useState(defaultArticles)
 

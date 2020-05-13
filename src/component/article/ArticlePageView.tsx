@@ -8,16 +8,30 @@ import { UserProfile } from '../../container/user/User'
 import { theme } from '../../theme'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
+import { Like } from '../../basic/like/Like'
 
 interface Props {
     article: any
     userName: string
     profilePicture: string
+    onLike: (value: number) => void
+    onDislike: (value: number) => void
+
 }
 
 
-export const ArticlePageView = ({ article, userName, profilePicture }: Props) => {
-    const { title, profile_picture, posted_by, first_name, last_name, description, tagline } = article.PostDetail
+export const ArticlePageView = ({ article, userName, profilePicture, onDislike, onLike }: Props) => {
+    const {
+        title,
+        profile_picture,
+        posted_by,
+        first_name,
+        last_name,
+        description,
+        tagline,
+        total_upvote,
+        total_downvote,
+        comment_count } = article.PostDetail
 
     return (
         <ScrollView style={styles.container} >
@@ -31,6 +45,7 @@ export const ArticlePageView = ({ article, userName, profilePicture }: Props) =>
                 <Description description={description} />
                 <Tags tags={tagline} />
                 <PostedByList postedList={posted_by} />
+                <Like comment={comment_count} like={total_upvote} onLike={onLike} onDislike={onDislike} />
             </View>
         </ScrollView>
     )

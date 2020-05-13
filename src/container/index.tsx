@@ -10,16 +10,5 @@ export const articleEndPoint = 'ws-feed-detail'
 export const loginUserEndPoint = 'ws-login-user'
 
 export const Main = ({ navigation }: any) => {
-
-
-    const onLike = () => {
-        console.log('Like')
-    }
-
-    const onDissLike = () => {
-        console.log('Disslike')
-    }
-
-    return (<Like comment={10} like={12} onLike={onLike} onDislike={onDissLike} />)
-    // return <Login navigation={navigation} />
+    return <Login navigation={navigation} />
 }
