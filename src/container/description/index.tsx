@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { getFakeText } from '../../utils/utils';
 import { WebView } from 'react-native-webview';
-
+import HTMLView from 'react-native-htmlview';
 
 interface Props {
     description: any,
@@ -10,14 +10,15 @@ interface Props {
 
 export const Description = ({ description }: Props) => {
 
-    const descrip = description[0].data;
-    const descrip2 = descrip == '' && getFakeText();
-    const valor_html = 'https://google.com'
+
+    let htmlContent = '';
+    for (let i = 0; i < description.length; i++) {
+        htmlContent += description[i].data;
+    }
 
     return (
         <View style={styles.container} >
-            {/* <Text>{descrip + descrip2}</Text> */}
-            <WebView  source={{ uri: `${valor_html}`}} />
+            <HTMLView value={htmlContent} />
         </View>
     )
 }
@@ -25,11 +26,5 @@ export const Description = ({ description }: Props) => {
 const styles = StyleSheet.create({
     container: {
         marginTop: 10,
-        height:'100%',
-        width:'100%',
     },
-    web:{
-        maxHeight:'50%',
-        maxWidth:'50%'
-    }
 });

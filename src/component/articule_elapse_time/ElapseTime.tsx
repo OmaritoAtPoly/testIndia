@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { Subheading } from 'react-native-paper';
 
 interface Props {
@@ -7,5 +7,12 @@ interface Props {
 }
 
 export const ElapseTime = ({ min_read }: Props) => (
-        <Text><Subheading style={{ marginLeft: 25, color:'#1ce87c' }}>Articule {min_read}</Subheading></Text>
+        <Text><Subheading style={styles.container}>Articule {min_read}</Subheading></Text>
 )
+
+const styles = StyleSheet.create({
+        container: {
+                marginLeft: 25,
+                // color: '#1ce87c'
+        },
+});

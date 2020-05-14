@@ -35,7 +35,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
         total_upvote,
         total_downvote,
         comment_count,min_read } = article.PostDetail
-
+        // console.log(description[2].data );
     return (
         <ScrollView style={styles.container} >
             <ArticleImageProfile imageUrl={profile_picture} />
@@ -58,7 +58,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.background,
-        // width: '100%'
+        width: '100%'
     },
     content: {
         height: '100%',
@@ -80,12 +80,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
-    web:{
-        flex:1,
-        // maxWidth:'50%',
-        maxHeight:'10%',
-        paddingEnd:10
-    }
 });
 
 
