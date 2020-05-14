@@ -13,9 +13,8 @@ export const Tags = ({ tags }: Props) => {
 
         return (
                 <View style={styles.container} >
-
                         <View style={styles.tags} >
-                                {allTags.map((tag: any, ind: number) => <Chip key={ind} style={styles.postedItem} mode="outlined" >{tag}</Chip>)}
+                                {allTags.map((tag: any, ind: number) => <Chip key={ind} style={styles.postedItem} mode="outlined" >{tag && tag}</Chip>)}
                         </View>
                 </View>
         )

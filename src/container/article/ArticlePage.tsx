@@ -7,6 +7,8 @@ interface Props {
     articleId: string
     userName: string
     profilePicture: string
+    onLike: (value: number) => void
+    onDislike: (value: number) => void
 }
 
 const useFetch = (articleId: string) => {
@@ -31,7 +33,7 @@ const useFetch = (articleId: string) => {
     return { data, loading }
 }
 
-export const ArticlePage = ({ articleId, userName, profilePicture }: Props) => {
+export const ArticlePage = ({ articleId, userName, profilePicture, onLike, onDislike }: Props) => {
     const { data, loading } = useFetch(articleId)
-    return loading ? <Loading /> : <ArticlePageView article={data} profilePicture={profilePicture} userName={userName} />
+    return loading ? <Loading /> : <ArticlePageView article={data} profilePicture={profilePicture} userName={userName} onLike={onLike} onDislike={onDislike} />
 }

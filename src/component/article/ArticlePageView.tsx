@@ -1,24 +1,37 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import { Subheading, Title } from 'react-native-paper'
+import { Title } from 'react-native-paper'
+import { Like } from '../../basic/like/Like'
 import { ArticleImageProfile } from '../../container/article/image'
+import { Comment } from '../../container/comment'
 import { Description } from '../../container/description'
 import { UserProfile } from '../../container/user/User'
 import { theme } from '../../theme'
+import { ElapseTime } from './articule_elapse_time/ElapseTime'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
+
 
 interface Props {
     article: any
     userName: string
     profilePicture: string
+    onLike: (value: number) => void
+    onDislike: (value: number) => void
+
 }
 
 
-export const ArticlePageView = ({ article, userName, profilePicture }: Props) => {
-    const { title, profile_picture, posted_by, first_name, last_name, description, tagline } = article.PostDetail
-
+export const ArticlePageView = ({ article, userName, profilePicture, onDislike, onLike }: Props) => {
+    const {
+        title,
+        profile_picture,
+        posted_by,
+        description,
+        tagline,
+        total_upvote,
+        comment_count, min_read } = article.PostDetail
     return (
         <ScrollView style={styles.container} >
             <ArticleImageProfile imageUrl={profile_picture} />
@@ -26,11 +39,13 @@ export const ArticlePageView = ({ article, userName, profilePicture }: Props) =>
                 <Title style={{ fontSize: 25 }}>{title}</Title>
                 <View style={styles.user_avatar}>
                     <UserProfile userName={userName} profilePicture={profilePicture} />
-                    <Subheading style={{ marginLeft: 25 }}>Articule</Subheading>
+                    <ElapseTime min_read={min_read} />
                 </View>
-                <Description description={description} />
+                <View><Description description={description} /></View>
                 <Tags tags={tagline} />
                 <PostedByList postedList={posted_by} />
+                <Like comment={comment_count} like={total_upvote} onLike={onLike} onDislike={onDislike} />
+                <Comment />
             </View>
         </ScrollView>
     )
