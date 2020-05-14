@@ -42,7 +42,6 @@ export const Login = ({ navigation }: Props) => {
     }
 
     const loginSucces = (userData: any) => {
-        console.log(userData)
         return userData ? goToArticle(userData.id, userData.first_name, userData.profile_picture) : setShow(true)
     }
 

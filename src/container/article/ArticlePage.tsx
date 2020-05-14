@@ -9,7 +9,6 @@ interface Props {
     profilePicture: string
     onLike: (value: number) => void
     onDislike: (value: number) => void
-
 }
 
 const useFetch = (articleId: string) => {

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { ArticleView } from '../../component/article'
 import { articlesIds } from '../../utils/utils'
 import { ArticlePage } from './ArticlePage'
+import { Alert } from 'react-native'
 
 const onLike = (likeCount: number) => {
-    console.log('OnLike')
+    Alert.alert('Like')
 }
 
 const onDisslike = (disslikeCount: number) => {
-    console.log('On dislike')
+    Alert.alert('dislike')
 }
 
 

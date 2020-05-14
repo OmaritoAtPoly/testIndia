@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Alert } from 'react-native'
 import { IconButton } from 'react-native-paper'
 
 interface Props {
@@ -19,19 +19,19 @@ export const LikeComponentView = ({ like, comment, onDislike, onLike }: Props) =
                     icon="camera" // Aqui va el icono del like
                     color={'red'}
                     size={20}
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => Alert.alert('Pressed')}
                 />
                 <IconButton
                     icon="camera"  // Aqui va el icono del unlike
                     color={'red'}
                     size={20}
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => Alert.alert('Pressed')}
                 />
                 <IconButton
                     icon="camera"  // Aqui va el icono del 3 punticos horizontales
                     color={'red'}
                     size={20}
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => Alert.alert('Pressed')}
                 />
             </View>
         </View>
