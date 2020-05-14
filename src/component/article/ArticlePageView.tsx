@@ -9,6 +9,7 @@ import { theme } from '../../theme'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
 import { Like } from '../../basic/like/Like'
+import { Comment } from '../../container/comment'
 
 interface Props {
     article: any
@@ -46,6 +47,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
                 <Tags tags={tagline} />
                 <PostedByList postedList={posted_by} />
                 <Like comment={comment_count} like={total_upvote} onLike={onLike} onDislike={onDislike} />
+                <Comment />
             </View>
         </ScrollView>
     )

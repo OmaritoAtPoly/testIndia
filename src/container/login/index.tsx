@@ -4,6 +4,7 @@ import { AlertDialog } from '../../basic/AlertDialog'
 import { CustomAppBar } from '../../basic/CustomAppBar'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
+import { Comment } from '../comment'
 
 const initialValues = {
     email: 'wiz_saurabh@rediffmail.com',
