@@ -9,6 +9,7 @@ import { theme } from '../../theme'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
 import { Like } from '../../basic/like/Like'
+import { ElapseTime } from '../articule_elapse_time/ElapseTime'
 
 interface Props {
     article: any
@@ -31,7 +32,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
         tagline,
         total_upvote,
         total_downvote,
-        comment_count } = article.PostDetail
+        comment_count,min_read } = article.PostDetail
 
     return (
         <ScrollView style={styles.container} >
@@ -40,7 +41,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
                 <Title style={{ fontSize: 25 }}>{title}</Title>
                 <View style={styles.user_avatar}>
                     <UserProfile userName={userName} profilePicture={profilePicture} />
-                    <Subheading style={{ marginLeft: 25 }}>Articule</Subheading>
+                    <ElapseTime min_read={min_read} />
                 </View>
                 <Description description={description} />
                 <Tags tags={tagline} />
