@@ -1,16 +1,16 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import { Subheading, Title } from 'react-native-paper'
+import { Title } from 'react-native-paper'
+import { Like } from '../../basic/like/Like'
 import { ArticleImageProfile } from '../../container/article/image'
+import { Comment } from '../../container/comment'
 import { Description } from '../../container/description'
 import { UserProfile } from '../../container/user/User'
 import { theme } from '../../theme'
+import { ElapseTime } from '../articule_elapse_time/ElapseTime'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
-import { Like } from '../../basic/like/Like'
-import { ElapseTime } from '../articule_elapse_time/ElapseTime'
-
 
 
 interface Props {
@@ -45,6 +45,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
                 <Tags tags={tagline} />
                 <PostedByList postedList={posted_by} />
                 <Like comment={comment_count} like={total_upvote} onLike={onLike} onDislike={onDislike} />
+                <Comment />
             </View>
         </ScrollView>
     )

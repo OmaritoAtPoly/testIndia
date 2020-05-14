@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, Alert } from 'react-native'
 import { IconButton } from 'react-native-paper'
+import { theme } from '../../theme'
+import Icon from 'react-native-vector-icons/AntDesign';
 
 interface Props {
     like: number;
@@ -16,22 +18,19 @@ export const LikeComponentView = ({ like, comment, onDislike, onLike }: Props) =
             <Text style={styles.text} >{`${like} likes, ${comment} comments`}</Text>
             <View style={styles.buttons} >
                 <IconButton
-                    icon="camera" // Aqui va el icono del like
-                    color={'red'}
-                    size={20}
-                    onPress={() => Alert.alert('Pressed')}
+                    icon={({ size, color }) => (<Icon name="like1" size={size} color={color} />)}
+                    color={theme.colors.primary}
+                    onPress={() => console.log('Pressed')}
                 />
                 <IconButton
-                    icon="camera"  // Aqui va el icono del unlike
-                    color={'red'}
-                    size={20}
-                    onPress={() => Alert.alert('Pressed')}
+                    icon={({ size, color }) => (<Icon name="dislike2" size={size} color={color} />)}
+                    color={theme.colors.primary}
+                    onPress={() => console.log('Pressed')}
                 />
                 <IconButton
-                    icon="camera"  // Aqui va el icono del 3 punticos horizontales
-                    color={'red'}
-                    size={20}
-                    onPress={() => Alert.alert('Pressed')}
+                    icon="more-horiz"  
+                    color={theme.colors.primary}
+                    onPress={() => console.log('Pressed')}
                 />
             </View>
         </View>

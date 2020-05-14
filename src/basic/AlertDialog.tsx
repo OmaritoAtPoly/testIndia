@@ -13,7 +13,7 @@ export const AlertDialog = ({ visible, onDismiss }: Props) => {
             <Portal>
                 <Dialog
                     visible={visible}
-                    onDismiss={() => console.log('Dismiss')}>
+                    onDismiss={() => {}}>
                     <Dialog.Title style={{ fontSize: 24 }} >
                         Ups!! Something was wrong
                         </Dialog.Title>

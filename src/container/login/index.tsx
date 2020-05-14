@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import { AlertDialog } from '../../basic/AlertDialog'
+import { CustomAppBar } from '../../basic/CustomAppBar'
 import { LoginForm } from '../../component/login'
 import { login } from '../../dataaccess/user'
-import { CustomAppBar } from '../../basic/CustomAppBar'
-import { AlertDialog } from '../../basic/AlertDialog'
-import { ProfileChip } from '../../basic/ProfileChip'
-import { Avatar } from 'react-native-paper'
+import { Comment } from '../comment'
 
 const initialValues = {
     email: 'wiz_saurabh@rediffmail.com',
