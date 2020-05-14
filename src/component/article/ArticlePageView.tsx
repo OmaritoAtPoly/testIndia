@@ -8,7 +8,7 @@ import { Comment } from '../../container/comment'
 import { Description } from '../../container/description'
 import { UserProfile } from '../../container/user/User'
 import { theme } from '../../theme'
-import { ElapseTime } from '../articule_elapse_time/ElapseTime'
+import { ElapseTime } from './articule_elapse_time/ElapseTime'
 import { PostedByList } from './posted'
 import { Tags } from './tags/Tags'
 
