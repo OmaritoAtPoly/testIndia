@@ -28,14 +28,10 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
         title,
         profile_picture,
         posted_by,
-        first_name,
-        last_name,
         description,
         tagline,
         total_upvote,
-        total_downvote,
-        comment_count,min_read } = article.PostDetail
-        // console.log(description[2].data );
+        comment_count, min_read } = article.PostDetail
     return (
         <ScrollView style={styles.container} >
             <ArticleImageProfile imageUrl={profile_picture} />
@@ -45,9 +41,8 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
                     <UserProfile userName={userName} profilePicture={profilePicture} />
                     <ElapseTime min_read={min_read} />
                 </View>
-                <View style={styles.web}><Description  description={description} /></View>
-                <Tags tags={tagline} /> 
-                {/* // todo    cambiar la etiketa ke se genera en blanco */}
+                <View><Description description={description} /></View>
+                <Tags tags={tagline} />
                 <PostedByList postedList={posted_by} />
                 <Like comment={comment_count} like={total_upvote} onLike={onLike} onDislike={onDislike} />
             </View>
