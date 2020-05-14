@@ -11,6 +11,8 @@ import { Tags } from './tags/Tags'
 import { Like } from '../../basic/like/Like'
 import { ElapseTime } from '../articule_elapse_time/ElapseTime'
 
+
+
 interface Props {
     article: any
     userName: string
@@ -43,8 +45,9 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
                     <UserProfile userName={userName} profilePicture={profilePicture} />
                     <ElapseTime min_read={min_read} />
                 </View>
-                <Description description={description} />
-                <Tags tags={tagline} />
+                <View style={styles.web}><Description  description={description} /></View>
+                <Tags tags={tagline} /> 
+                {/* // todo    cambiar la etiketa ke se genera en blanco */}
                 <PostedByList postedList={posted_by} />
                 <Like comment={comment_count} like={total_upvote} onLike={onLike} onDislike={onDislike} />
             </View>
@@ -55,7 +58,7 @@ export const ArticlePageView = ({ article, userName, profilePicture, onDislike, 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.background,
-        width: '100%'
+        // width: '100%'
     },
     content: {
         height: '100%',
@@ -77,6 +80,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
+    web:{
+        flex:1,
+        // maxWidth:'50%',
+        maxHeight:'10%',
+        paddingEnd:10
+    }
 });
 
 

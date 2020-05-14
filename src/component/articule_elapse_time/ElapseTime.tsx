@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const ElapseTime = ({ min_read }: Props) => (
-        <Text><Subheading style={{ marginLeft: 25 }}>Articule {min_read}</Subheading></Text>
+        <Text><Subheading style={{ marginLeft: 25, color:'#1ce87c' }}>Articule {min_read}</Subheading></Text>
 )
